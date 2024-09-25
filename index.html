@@ -103,8 +103,8 @@
 <ul>
     <li>Grupos de K-pop</li>
     <li>Información de venta</li>
-    <li><a id="openEMS">EMS y cargos de aduana</a></li>
-    <li><a id="openFP">Formas de Pago</a></li>
+    <li><a id="openModal">EMS y cargos de aduana</a></li>
+    <li><a id="openModal2">Formas de Pago</a></li>
     <li>Nuestras redes sociales</li>
 </ul>
 
@@ -258,7 +258,9 @@
      </div>
    </div>
  </div>
-  <div id="ModalEMS" class="modal">
+  
+  <!-- Modal 1 -->
+  <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeModal">&times;</span>
         <h2 class="text-center">Dinámica de Pedido y Compra</h2>
@@ -278,6 +280,15 @@
         <div class="text-center">
             <button id="saveChanges" class="btn btn-primary">Cerrar</button>
         </div>
+    </div>
+</div>
+
+  <!-- Modal 2 -->
+<div id="myModal2" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal2">&times;</span>
+        <h2>Contenido Modal 2</h2>
+        <p>Detalles del segundo modal.</p>
     </div>
 </div>
   
@@ -328,37 +339,49 @@
   </div>
 
 </footer>
+  
 <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
-      scrollRevelation('.card');
-    });
+    // Obtener los modales
+    var modal1 = document.getElementById("myModal");
+    var modal2 = document.getElementById("myModal2");
 
-    // Modal functionality
-    var modal = document.getElementById("ModalEMS");
-    var modal = document.getElementById("ModalFP");
-    var btn = document.getElementById("openEMS");
-    var btn = document.getElementById("openFP");
-    var span = document.getElementById("closeModal");
+    // Obtener los botones que abren los modales
+    var btn1 = document.getElementById("openModal");
+    var btn2 = document.getElementById("openModal2");
 
-    btn.onclick = function() {
-      modal.style.display = "block";
+    // Obtener los elementos <span> que cierran los modales
+    var span1 = document.getElementById("closeModal1");
+    var span2 = document.getElementById("closeModal2");
+
+    // Función para abrir el modal 1
+    btn1.onclick = function() {
+        modal1.style.display = "block";
     }
 
-    span.onclick = function() {
-      modal.style.display = "none";
+    // Función para abrir el modal 2
+    btn2.onclick = function() {
+        modal2.style.display = "block";
     }
 
+    // Función para cerrar el modal 1
+    span1.onclick = function() {
+        modal1.style.display = "none";
+    }
+
+    // Función para cerrar el modal 2
+    span2.onclick = function() {
+        modal2.style.display = "none";
+    }
+
+    // Cerrar el modal si se hace clic fuera de él
     window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
     }
-
-    document.getElementById("saveChanges").innerText = "Cerrar";
-    document.getElementById("saveChanges").onclick = function() {
-      modal.style.display = "none";
-    }
-</script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
 
 <script>
